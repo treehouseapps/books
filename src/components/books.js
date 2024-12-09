@@ -1,37 +1,27 @@
 import { Link } from "react-router-dom";
 import Data from "./data";
-
 const Books = () => {
     return (
-        <div className="container py-5">
-            <section id="feature" className="book-feature">
-                <div className="row g-4">
-                    {Data.map((element, index) => (
-                        <div key={index} className="col-md-4">
-                            <div className="card shadow-sm h-100 border-0">
-                                <img
-                                    src={element.img}
-                                    alt={element.title}
-                                    className="card-img-top rounded-top"
-                                    style={{ maxHeight: "200px", objectFit: "cover" }}
-                                />
-                                <div className="card-body text-center">
-                                    <h5 className="card-title text-primary">{element.title}</h5>
-                                    <p className="card-text text-muted">{element.body}</p>
-                                    <Link to="/">
-                                        <button type="button" className="btn btn-outline-primary">
-                                            Download
-                                            <span className="ms-2">
-                                                <i className="bi bi-cloud-arrow-down-fill"></i>
-                                            </span>
-                                        </button>
-                                    </Link>
+        <div>
+            <div className="d-flex justify-content-evenly">
+                <section id="feature" className="book-feature">
+
+                    <div className="row">
+                        {Data.map((element) => (
+                            <div className="book-item">
+                                <div className="book feature-box col-md-4">
+                                    <div className="align"> <img src={element.img} alt="" />
+                                        <h4>{element.title}</h4></div>
+                                    <p>{element.body}</p>
                                 </div>
+                                <Link to='/'> <button type="button" class="btn btn-light mb-2">
+                                    Download <span class="badge bg-white text-dark"><i className="bi bi-cloud-arrow-down-fill"></i></span>
+                                </button></Link>
                             </div>
-                        </div>
-                    ))}
-                </div>
-            </section>
+                        ))}
+                    </div>
+                </section >
+            </div>
         </div>
     );
 }
